@@ -1,0 +1,202 @@
+/* Кольори й відступи в одному місці: змінюйте тут, і зміниться весь сайт */
+:root {
+    --blue: #2338c8;
+    --ink: #1e1612;
+    --paper: #eef1f6;
+    --milk: #ffffff;
+    --caramel: #f0b04a;
+    --pad-x: clamp(1.25rem, 5vw, 4rem);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    font-family: Manrope, system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: Unbounded, Georgia, sans-serif;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--caramel);
+    outline-offset: 3px;
+}
+
+/* Шапка */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem var(--pad-x);
+    background: var(--blue);
+    color: var(--milk);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Головний екран */
+.hero {
+    padding: clamp(3rem, 10vw, 8rem) var(--pad-x) clamp(4rem, 12vw, 9rem);
+    background: var(--blue);
+    color: var(--milk);
+}
+
+.hero h1 {
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.hero p {
+    max-width: 46ch;
+    margin: 1.5rem 0 2rem;
+    font-size: 1.2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    background: var(--caramel);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--milk);
+}
+
+/* Секції */
+.menu,
+.about,
+.visit {
+    padding: clamp(3rem, 8vw, 6rem) var(--pad-x);
+}
+
+h2 {
+    margin-bottom: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--blue);
+}
+
+/* Сітка, яка сама перебудовується під ширину екрана */
+.cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+}
+
+/* Меню: назва ..... ціна */
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    padding: 0.35rem 0;
+}
+
+li img {
+    flex: none;
+    width: 56px;
+    height: 56px;
+    margin-right: 0.9rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+li span:first-of-type {
+    display: flex;
+    flex: 1;
+    align-items: baseline;
+}
+
+li span:first-of-type::after {
+    content: "";
+    flex: 1;
+    margin: 0 0.6rem;
+    border-bottom: 2px dotted currentColor;
+    opacity: 0.35;
+}
+
+li span:last-of-type {
+    font-weight: 600;
+}
+
+/* Про нас */
+.about {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.about p {
+    max-width: 60ch;
+    font-size: 1.2rem;
+}
+
+/* Підвал */
+footer {
+    padding: 1.5rem var(--pad-x);
+    background: var(--blue);
+    color: var(--milk);
+    font-size: 0.95rem;
+}
+
+/* Мобільні телефони */
+@media (max-width: 520px) {
+    .top {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
